@@ -34,7 +34,7 @@ Object.keys(actionMap).forEach((item) => {                   
     })
 })
 program.version(version).parse(process.argv)
-// 编写help命令
+// 编写help配置
 program.on('--help', () => {
     console.log('examples')
     Object.keys(actionMap).forEach((item) =>{

@@ -6,20 +6,20 @@ const {promisify} = require('util')
 const downLoadGit = require('download-git-repo')
 let ncp = require('ncp') // 复制
 const download = promisify(downLoadGit) //下载git模版
-// get repo list
+// downLoad cache
 const downLoadDir =`${process.env[process.platform === 'darwin' ? 'HOME'
 : 'USERPROFILE']}/.template`
 const getList = async () => {
-    const {data} = await axios.get('https://api.github.com/orgs/work-p/repos')
+    const {data} = await axios.get('https://api.github.com/orgs/work-template/repos')
     console.log('data',data)
     return data
 }
 const getTagList = async (repo) => {
-    const {data} = await axios.get(`https://api.github.com/repos/work-p/${repo}/tags`)
+    const {data} = await axios.get(`https://api.github.com/repos/work-template/${repo}/tags`)
     return data
 }
 const downloadGitTemplate = async (repo, tag) => {
-    let api = `work-p/${repo}`
+    let api = `work-template/${repo}`
     if (tag) {
         api += `#${tag}`
     }

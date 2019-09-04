@@ -66,4 +66,4 @@ module.exports = async (project) => {
     ncp = promisify(ncp)
     await ncp(target, path.join(path.resolve(), project))
     console.log('项目拷贝成功')
-}
+} 
